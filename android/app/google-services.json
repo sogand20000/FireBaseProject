@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1075153982645",
+    "project_id": "fir-reactnative-ae87a",
+    "storage_bucket": "fir-reactnative-ae87a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1075153982645:android:11ef82dc8c13f3de10dafc",
+        "android_client_info": {
+          "package_name": "com.firebaseproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1075153982645-vjq9rdfa255j9bmeii71mfnnmlvh7bad.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRvenST92Rge_zrlaniOI123bOx7qQSUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1075153982645-vjq9rdfa255j9bmeii71mfnnmlvh7bad.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
