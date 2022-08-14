@@ -14,6 +14,11 @@ function Card({title, subTitle, image}) {
     </View>
   );
 }
+
+/* use in app.js  <Card
+   title="Tree is very nice"
+   subTitle="10 years"
+   image={require('./App/assets/tree.jpg')}></Card>; */
 const styles = StyleSheet.create({
   containerDatilel: {
     padding: 20,
