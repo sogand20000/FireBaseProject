@@ -2,18 +2,33 @@ import React from 'react';
 import {Image, View, StyleSheet, TouchableHighlight} from 'react-native';
 import colors from '../confing/colors';
 import AppText from './AppText';
+import {GestureHandlerRootView, Swipeable} from 'react-native-gesture-handler';
 
-function ListItem({title, subTitle, image, onPress}) {
+function ListItem({
+  title,
+  subTitle,
+  image,
+  imageComponent,
+  onPress,
+  renderRightAction,
+}) {
   return (
-    <TouchableHighlight underlayColor={colors.lightGray} onPress={onPress}>
-      <View style={styles.container}>
-        <Image style={styles.image} source={image}></Image>
-        <View style={styles.textContainer}>
-          <AppText style={styles.title}>{title}</AppText>
-          <AppText style={styles.subTitle}>{subTitle}</AppText>
-        </View>
-      </View>
-    </TouchableHighlight>
+    <GestureHandlerRootView>
+      <Swipeable renderRightActions={renderRightAction}>
+        <TouchableHighlight underlayColor={colors.lightGray} onPress={onPress}>
+          <View style={styles.container}>
+            {imageComponent}
+            {image && <Image style={styles.image} source={image}></Image>}
+            <View style={styles.textContainer}>
+              <AppText style={styles.title}>{title}</AppText>
+              {subTitle && (
+                <AppText style={styles.subTitle}>{subTitle}</AppText>
+              )}
+            </View>
+          </View>
+        </TouchableHighlight>
+      </Swipeable>
+    </GestureHandlerRootView>
   );
 }
 
@@ -33,6 +48,7 @@ const styles = StyleSheet.create({
   textContainer: {
     flexDirection: 'column',
     marginLeft: 20,
+    justifyContent: 'center',
   },
   title: {
     fontSize: 20,
