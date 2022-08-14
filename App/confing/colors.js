@@ -6,4 +6,5 @@ export default {
   white: '#FFFFFF',
   tomato: 'tomato',
   lightGreen: '#1C7947',
+  lightGray: '#ededed',
 };

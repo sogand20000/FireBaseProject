@@ -28,7 +28,8 @@ function MessagesScreen(props) {
           <ListItem
             title={item.title}
             subTitle={item.description}
-            image={item.image}></ListItem>
+            image={item.image}
+            onPress={() => console.log('Item Selected ', item)}></ListItem>
         )}></FlatList>
     </Screen>
   );
