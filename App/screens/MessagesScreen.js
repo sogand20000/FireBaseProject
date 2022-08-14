@@ -2,6 +2,7 @@ import React from 'react';
 import {FlatList} from 'react-native';
 import ListItem from '../component/ListItem';
 import Screen from '../component/Screen';
+import ListItemSeparator from '../component/ListItemSeparator';
 const messsages = [
   {
     id: 1,
@@ -22,6 +23,7 @@ function MessagesScreen(props) {
       <FlatList
         data={messsages}
         keyExtractor={messsage => messsage.id}
+        ItemSeparatorComponent={ListItemSeparator}
         renderItem={({item}) => (
           <ListItem
             title={item.title}
