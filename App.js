@@ -2,13 +2,11 @@ import React from 'react';
 import Icon from './App/component/Icon';
 import Screen from './App/component/Screen';
 import colors from './App/confing/colors';
-import ListItem from './App/component/ListItem';
+import ListingScreen from './App/screens/ListingScreen';
 export default function App() {
   return (
     <Screen>
-      <ListItem
-        title="My title"
-        imageComponent={<Icon name="email"></Icon>}></ListItem>
+      <ListingScreen></ListingScreen>
     </Screen>
   );
 }
