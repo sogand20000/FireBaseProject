@@ -1,12 +1,7 @@
-import React from 'react';
-import Icon from './App/component/Icon';
+import React, {useState} from 'react';
+import {TextInput} from 'react-native';
 import Screen from './App/component/Screen';
-import colors from './App/confing/colors';
-import ListingScreen from './App/screens/ListingScreen';
+import AppTextInput from './App/component/AppTextInput';
 export default function App() {
-  return (
-    <Screen>
-      <ListingScreen></ListingScreen>
-    </Screen>
-  );
+  return <AppTextInput icon="email"></AppTextInput>;
 }

@@ -1,27 +1,35 @@
 import React from 'react';
-import {TextInput, View, StyleSheet} from 'react-native';
+import {TextInput, View, StyleSheet, Text} from 'react-native';
 import {MaterialCommunityIcons} from 'react-native-vector-icons/MaterialCommunityIcons';
-import {MaterialIcons} from 'react-native-vector-icons/MaterialIcons';
 
 import colors from '../confing/colors';
+import Icon from './Icon';
 
 function AppTextInput({icon, ...otherProps}) {
   return (
     <View style={styles.container}>
-      {icon && <MaterialIcons name={icon} size={20} style={styles.icon} />}
-      <TextInput {...otherProps} />
+      <Icon name="email" backgroundColor={colors.gray} size={60}></Icon>
+      <TextInput
+        placeholder="User Name"
+        style={styles.TextInput}
+        {...otherProps}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'red', //defaultStyles.colors.light,
-    borderRadius: 25,
+    backgroundColor: colors.gray,
+    borderRadius: 20,
     flexDirection: 'row',
+    padding: 5,
+    margin: 5,
+  },
+
+  TextInput: {
+    marginLeft: 10,
     width: '100%',
-    padding: 15,
-    marginVertical: 10,
   },
   icon: {
     marginRight: 10,
