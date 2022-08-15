@@ -5,10 +5,14 @@ import {MaterialCommunityIcons} from 'react-native-vector-icons/MaterialCommunit
 import colors from '../confing/colors';
 import Icon from './Icon';
 
-function AppTextInput({icon, ...otherProps}) {
+function AppTextInput({icon, iconColor = colors.white, ...otherProps}) {
   return (
     <View style={styles.container}>
-      <Icon name="email" backgroundColor={colors.gray} size={60}></Icon>
+      <Icon
+        name="email"
+        iconColor={iconColor}
+        backgroundColor={colors.gray}
+        size={60}></Icon>
       <TextInput
         placeholder="User Name"
         style={styles.TextInput}
