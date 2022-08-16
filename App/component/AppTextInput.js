@@ -13,11 +13,7 @@ function AppTextInput({icon, iconColor = colors.white, ...otherProps}) {
         iconColor={iconColor}
         backgroundColor={colors.gray}
         size={60}></Icon>
-      <TextInput
-        placeholder="User Name"
-        style={styles.TextInput}
-        {...otherProps}
-      />
+      <TextInput style={styles.TextInput} {...otherProps} />
     </View>
   );
 }

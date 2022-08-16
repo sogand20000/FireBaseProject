@@ -4,6 +4,7 @@ import AppPicker from './App/component/AppPicker';
 import colors from './App/confing/colors';
 import Screen from './App/component/Screen';
 import LoginScreen from './App/screens/LoginScreen';
+import {Image, StyleSheet} from 'react-native';
 export default function App() {
   return (
     <Screen>
