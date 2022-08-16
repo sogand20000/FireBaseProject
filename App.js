@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
 import AppTextInput from './App/component/AppTextInput';
-import AppPicker from './App/component/AppPicker';
 import colors from './App/confing/colors';
 import Screen from './App/component/Screen';
-import LoginScreen from './App/screens/LoginScreen';
+import LoginScreenFormik from './App/screens/LoginScreenFormik';
 import {Image, StyleSheet} from 'react-native';
 export default function App() {
   return (
     <Screen>
-      <LoginScreen></LoginScreen>
+      <LoginScreenFormik></LoginScreenFormik>
     </Screen>
   );
 }

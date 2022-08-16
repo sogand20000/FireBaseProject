@@ -9,7 +9,7 @@ function AppTextInput({icon, iconColor = colors.white, ...otherProps}) {
   return (
     <View style={styles.container}>
       <Icon
-        name="email"
+        name={icon}
         iconColor={iconColor}
         backgroundColor={colors.gray}
         size={60}></Icon>
