@@ -7,7 +7,8 @@ import {Formik, Form} from 'formik';
 import * as Yup from 'yup';
 import AppText from '../component/AppText';
 import colors from '../confing/colors';
-
+import ErrorMessage from '../component/ErrorMessage';
+import AppFormField from '../component/AppFormField';
 const validation = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
   password: Yup.string().required().min(4).label('Password'),
@@ -22,28 +23,27 @@ export default function LoginScreen() {
         initialValues={{email: '', password: ''}}
         validationSchema={validation}
         onSubmit={values => console.log(values)}>
-        {({handleChange, handleSubmit, errors}) => (
+        {({handleChange, handleSubmit, errors, setFieldTouched, touched}) => (
           <>
-            <AppTextInput
+            <AppFormField
               autoCapitalize="none"
               autoCorrect={false}
               icon="email"
-              onChangeText={handleChange('email')}
               keyboardType="email-address"
               placeholder="Email"
-              textContentType="emailAddress"></AppTextInput>
-            <AppText style={styles.text}>{errors.email}</AppText>
+              textContentType="emailAddress"
+              name="email"></AppFormField>
 
-            <AppTextInput
+            <AppFormField
               autoCapitalize="none"
               autoCorrect={false}
               icon="lock"
-              onChangeText={handleChange('password')}
               keyboardType="password"
               placeholder="Password"
               secureTextEntry={true}
-              textContentType="password"></AppTextInput>
-            <AppText style={styles.text}>{errors.password}</AppText>
+              name="password"
+              textContentType="password"></AppFormField>
+
             <AppButton title="Login" onPress={handleSubmit}></AppButton>
           </>
         )}
@@ -57,11 +57,5 @@ const styles = StyleSheet.create({
     height: 80,
     alignSelf: 'center',
     paddingTop: 20,
-  },
-  text: {
-    textAlign: 'left',
-    marginTop: 5,
-    marginLeft: 20,
-    color: colors.tomato,
   },
 });
