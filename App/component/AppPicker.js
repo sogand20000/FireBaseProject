@@ -16,6 +16,7 @@ import AppText from './AppText';
 import Icon from './Icon';
 import Screen from './Screen';
 import PickerItem from './PickerItem';
+import App from '../../App';
 function AppPicker({
   selectedItem,
   onSelectItem,
@@ -88,3 +89,25 @@ const styles = StyleSheet.create({
 });
 
 export default AppPicker;
+/*  useage in App.ja
+ const categories = [
+  {label: 'furniture', value: 1},
+  {label: 'Clothing', value: 2},
+  {label: 'Cameras', value: 3},
+];
+export default function App() {
+  const [category, setCategory] = useState(categories[0]);
+  return (
+    <Screen>
+      <AppPicker
+        selectedItem={category}
+        onSelectItem={item => setCategory(item)}
+        icon="apps"
+        items={categories}
+        iconColor={colors.black}
+        placeholder="Category"></AppPicker>
+      <AppTextInput icon="email" iconColor={colors.black}></AppTextInput>
+    </Screen>
+  );
+}
+ */
