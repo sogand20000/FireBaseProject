@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+/* import React, {useState} from 'react';
 import {
   TextInput,
   View,
@@ -28,7 +28,10 @@ function AppPicker({
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
-      <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
+      <TouchableWithoutFeedback
+        onPress={() => {
+          setModalVisible(true);
+        }}>
         <View style={styles.container}>
           <View style={styles.leftItem}>
             <Icon
@@ -111,3 +114,105 @@ export default function App() {
   );
 }
  */
+import React, {useState} from 'react';
+import {
+  View,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  Modal,
+  Button,
+  FlatList,
+} from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import AppText from './AppText';
+import Screen from './Screen';
+import colors from '../confing/colors';
+
+/* import defaultStyles from '../config/styles';
+ */ import PickerItem from './PickerItem';
+/* selectedItem,
+  onSelectItem,
+  items,
+  icon,
+  placeholder,
+  (iconColor = colors.white), */
+function AppPicker({
+  icon,
+  iconColor = colors.white,
+  items,
+  onSelectItem,
+  placeholder,
+  selectedItem,
+}) {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  return (
+    <>
+      <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
+        <View style={styles.container}>
+          {icon && (
+            <MaterialCommunityIcons
+              name={icon}
+              size={20}
+              color={colors.blue}
+              style={styles.icon}
+            />
+          )}
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          )}
+
+          <MaterialCommunityIcons
+            name="chevron-down"
+            size={20}
+            color={colors.black}
+          />
+        </View>
+      </TouchableWithoutFeedback>
+      <Modal visible={modalVisible} animationType="slide">
+        <Screen>
+          <Button title="Close" onPress={() => setModalVisible(false)} />
+          <FlatList
+            data={items}
+            keyExtractor={item => item.value.toString()}
+            renderItem={({item}) => (
+              <PickerItem
+                label={item.label}
+                onPress={() => {
+                  setModalVisible(false);
+                  onSelectItem(item);
+                }}
+              />
+            )}
+          />
+        </Screen>
+      </Modal>
+    </>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.light,
+    borderRadius: 25,
+    flexDirection: 'row',
+    width: '100%',
+    padding: 15,
+    marginVertical: 10,
+  },
+  icon: {
+    marginRight: 10,
+  },
+  placeholder: {
+    color: colors.black,
+    flex: 1,
+  },
+  text: {
+    flex: 1,
+  },
+});
+
+export default AppPicker;

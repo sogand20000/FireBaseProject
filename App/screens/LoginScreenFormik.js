@@ -7,10 +7,12 @@ import {Formik, Form} from 'formik';
 import * as Yup from 'yup';
 import AppText from '../component/AppText';
 import colors from '../confing/colors';
-import ErrorMessage from '../component/ErrorMessage';
-import AppFormField from '../component/AppFormField';
+/* import ErrorMessage from '../component/forms/ErrorMessage';
+import AppFormField from '../component/forms/AppFormField'; */
 import SubmitButton from '../component/SubmitButton';
-import AppForm from '../component/AppForm';
+/* import AppForm from '../component/forms/AppForm';
+ */
+import {AppForm, AppFormField, ErrorMessage} from '../component/forms';
 const validation = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
   password: Yup.string().required().min(4).label('Password'),
