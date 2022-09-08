@@ -7,16 +7,16 @@ import {Image, StyleSheet} from 'react-native';
 import Timer from './App/component/Timer';
 import AppPicker from './App/component/AppPicker';
 import ListingEditScreen from './App/screens/ListingEditScreen';
-/* export default function App() {
+import Map from './App/component/Location/Map';
+export default function App() {
   return (
     <Screen>
-       <ListingEditScreen></ListingEditScreen> 
+      <Map></Map>
     </Screen>
   );
 }
- */
 
-const categories = [
+/* const categories = [
   {label: 'furniture', value: 1},
   {label: 'Clothing', value: 2},
   {label: 'Cameras', value: 3},
@@ -35,4 +35,4 @@ export default function App() {
       <AppTextInput icon="email" iconColor={colors.black}></AppTextInput>
     </Screen>
   );
-}
+} */
