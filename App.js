@@ -7,11 +7,11 @@ import {Image, StyleSheet} from 'react-native';
 import Timer from './App/component/Timer';
 import AppPicker from './App/component/AppPicker';
 import ListingEditScreen from './App/screens/ListingEditScreen';
-import Map from './App/component/Location/Map';
+import MapScreen from './App/screens/MapScreen';
 export default function App() {
   return (
     <Screen>
-      <Map></Map>
+      <MapScreen></MapScreen>
     </Screen>
   );
 }
