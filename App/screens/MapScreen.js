@@ -20,6 +20,9 @@ function MapScreen(props) {
   const regionChange = () => {
     setRegion(regionCoords);
   };
+  const deleteSearch = () => {
+    setRegion([]);
+  };
   const onPress = (data, details) => {
     console.log('hh', details.geometry.location);
     setRegion(details.geometry.location);
@@ -36,7 +39,9 @@ function MapScreen(props) {
   }, [regionCoords.coords]);
   return (
     <>
-      <SearchPlaces onPress={onPress}></SearchPlaces>
+      <SearchPlaces
+        onPress={onPress}
+        deleteSearch={deleteSearch}></SearchPlaces>
       <Map regionCoords={regionCoords} regionChange={regionChange}></Map>
     </>
   );
