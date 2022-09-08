@@ -10,6 +10,7 @@ import Map from '../component/Location/Map';
   StyleSheet,
   PermissionsAndroid,
 } from 'react-native';
+import SearchPlaces from '../component/Location/SearchPlaces';
 
 function MapScreen(props) {
   const [regionCoords, setRegion] = useState({
@@ -18,6 +19,10 @@ function MapScreen(props) {
   });
   const regionChange = () => {
     setRegion(regionCoords);
+  };
+  const onPress = (data, details) => {
+    console.log('hh', details.geometry.location);
+    setRegion(details.geometry.location);
   };
   useEffect(() => {
     if (PermissionsAndroid) {
@@ -29,7 +34,12 @@ function MapScreen(props) {
       );
     }
   }, [regionCoords.coords]);
-  return <Map regionCoords={regionCoords} regionChange={regionChange}></Map>;
+  return (
+    <>
+      <SearchPlaces onPress={onPress}></SearchPlaces>
+      <Map regionCoords={regionCoords} regionChange={regionChange}></Map>
+    </>
+  );
 }
 
 export default MapScreen;
